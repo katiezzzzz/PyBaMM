@@ -49,6 +49,15 @@ r_p = pybamm.SpatialVariable(
     },
     coord_sys="spherical polar",
 )
+rho_n = pybamm.SpatialVariable(
+    "rho_n",
+    domain=["negative particle"],
+    auxiliary_domains={
+        "secondary": "negative electrode",
+        "tertiary": "current collector",
+    },
+    coord_sys="cylindrical polar",
+)
 
 # Domains at cell edges
 x_n_edge = pybamm.SpatialVariableEdge(
@@ -100,4 +109,13 @@ r_p_edge = pybamm.SpatialVariableEdge(
         "tertiary": "current collector",
     },
     coord_sys="spherical polar",
+)
+rho_n_edge = pybamm.SpatialVariableEdge(
+    "rho_n",
+    domain=["negative particle"],
+    auxiliary_domains={
+        "secondary": "negative electrode",
+        "tertiary": "current collector",
+    },
+    coord_sys="cylindrical polar",
 )
