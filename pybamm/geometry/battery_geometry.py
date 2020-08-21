@@ -4,7 +4,7 @@
 import pybamm
 
 
-def battery_geometry(include_particles=True, current_collector_dimension=0):
+def battery_geometry(include_particles=True, current_collector_dimension=0, coin_geometry=False):
     """
     A convenience function to create battery geometries.
 
@@ -37,6 +37,13 @@ def battery_geometry(include_particles=True, current_collector_dimension=0):
             {
                 "negative particle": {var.r_n: {"min": 0, "max": 1}},
                 "positive particle": {var.r_p: {"min": 0, "max": 1}},
+            }
+        )
+    # Add coin geometry
+    if coin_geometry is True:
+        geometry.update(
+            {
+                "negative particle": {var.rho_n: {"min": 0, "max": 1}},
             }
         )
 
