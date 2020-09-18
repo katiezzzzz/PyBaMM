@@ -143,10 +143,7 @@ class LithiumIonParameters:
 
         if self.options["particle shape"] == "spherical":
             self.a_n_dim = 3 * self.epsilon_s_n / self.R_n
-            self.a_p_dim = 3 * self.epsilon_s_p / self.R_p
-        elif self.options["particle shape"] == "negative coin":
-            self.a_n_dim = 2 * self.epsilon_s_n / self.R_n
-            self.a_p_dim = 3 * self.epsilon_s_p / self.R_p            
+            self.a_p_dim = 3 * self.epsilon_s_p / self.R_p          
         elif self.options["particle shape"] == "user":
             self.a_n_dim = self.geo.a_n_dim
             self.a_p_dim = self.geo.a_p_dim
@@ -755,7 +752,7 @@ class LithiumIonParameters:
         area per unit volume as a function of x is given by a*a_of_x (so that
         a_of_x = 1 gives uniform surface area per unit volume in x).
         """
-        if self.options["particle shape"] == "spherical" or self.options["particle shape"] == "negative coin":
+        if self.options["particle shape"] == "spherical":
             # Currently the active material volume fraction is a scalar, so the
             # distribution of surface are per unit volume is simply the reciprocal
             # of the particle radius distribution
@@ -773,7 +770,7 @@ class LithiumIonParameters:
         area per unit volume as a function of x is given by a*a_of_x (so that
         a_of_x = 1 gives uniform surface area per unit volume in x).
         """
-        if self.options["particle shape"] == "spherical" or self.options["particle shape"] == "negative coin":
+        if self.options["particle shape"] == "spherical":
             # Currently the active material volume fraction is a scalar, so the
             # distribution of surface are per unit volume is simply the reciprocal
             # of the particle radius distribution
@@ -820,7 +817,7 @@ class LithiumIonParameters:
         # Check the options are valid (this check also happens in 'BaseBatteryModel',
         # but we check here incase the parameter class is instantiated separetly
         # from the model)
-        if options["particle shape"] not in ["spherical", "user", "negative coin"]:
+        if options["particle shape"] not in ["spherical", "user"]:
             raise pybamm.OptionError(
                 "particle shape '{}' not recognised".format(options["particle shape"])
             )
