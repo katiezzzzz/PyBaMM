@@ -351,7 +351,7 @@ class BaseBatteryModel(pybamm.BaseModel):
             raise pybamm.OptionError(
                 "particle model '{}' not recognised".format(options["particle"])
             )
-        if options["particle shape"] not in ["spherical", "user"]:
+        if options["particle shape"] not in ["spherical", "user", "negative coin"]:
             raise pybamm.OptionError(
                 "particle shape '{}' not recognised".format(options["particle shape"])
             )

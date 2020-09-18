@@ -4,7 +4,8 @@
 import pybamm
 
 
-def battery_geometry(include_particles=True, current_collector_dimension=0, coin_geometry=False):
+def battery_geometry(include_particles=True, current_collector_dimension=0,
+                     coin_geometry=False):
     """
     A convenience function to create battery geometries.
 
