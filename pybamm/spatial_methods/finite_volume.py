@@ -183,20 +183,6 @@ class FiniteVolume(pybamm.SpatialMethod):
             out = (1 / (r ** 2)) * (
                 divergence_matrix @ ((r_edges ** 2) * discretised_symbol)
             )
-        elif submesh.coord_sys == "cylindrical polar":
-            second_dim_repeats = self._get_auxiliary_domain_repeats(symbol.domains)
-            edges = submesh.edges
-
-            # create np.array of repeated submesh.nodes
-            rho_numpy = np.kron(np.ones(second_dim_repeats), submesh.nodes)
-            rho_edges_numpy = np.kron(np.ones(second_dim_repeats), edges)
-
-            rho = pybamm.Vector(rho_numpy)
-            rho_edges = pybamm.Vector(rho_edges_numpy)
-
-            out = (1 / rho) * (
-                divergence_matrix @ (rho_edges * discretised_symbol)
-            )            
         else:
             out = divergence_matrix @ discretised_symbol
 
@@ -256,12 +242,7 @@ class FiniteVolume(pybamm.SpatialMethod):
             second_dim_repeats = self._get_auxiliary_domain_repeats(child.domains)
             r_numpy = np.kron(np.ones(second_dim_repeats), submesh.nodes)
             r = pybamm.Vector(r_numpy)
-            out = 4 * np.pi * integration_vector @ (discretised_child * r ** 2)
-        elif submesh.coord_sys == "cylindrical polar":
-            second_dim_repeats = self._get_auxiliary_domain_repeats(child.domains)
-            rho_numpy = np.kron(np.ones(second_dim_repeats), submesh.nodes)
-            rho = pybamm.Vector(rho_numpy)
-            out = 2 * np.pi * integration_vector @ (discretised_child * rho)            
+            out = 4 * np.pi * integration_vector @ (discretised_child * r ** 2)          
         else:
             out = integration_vector @ discretised_child
         return out
@@ -361,11 +342,7 @@ class FiniteVolume(pybamm.SpatialMethod):
             if submesh.coord_sys == "spherical polar":
                 raise NotImplementedError(
                     "Indefinite integral on a spherical polar domain is not implemented"
-                )
-            if submesh.coord_sys == "cylindrical polar":
-                raise NotImplementedError(
-                    "Indefinite integral on a cylindrical polar domain is not implemented"
-                )   
+                ) 
             integration_matrix = self.indefinite_integral_matrix_nodes(
                 child.domains, direction
             )
