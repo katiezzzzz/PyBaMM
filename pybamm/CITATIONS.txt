@@ -204,3 +204,26 @@ primaryClass={physics.app-ph},
   year={2005},
   publisher={IOP Publishing}
 }
+
+@article{schmalstieg2018i,
+  title={Full cell parameterization of a high-power lithium-ion battery for a physico-chemical model: part i. physical and electrochemical parameters},
+  author={Schmalstieg, Johannes and Rahe, Christiane and Ecker, Madeleine and Sauer, Dirk Uwe},
+  journal={Journal of the Electrochemical Society},
+  volume={165},
+  number={16},
+  pages={A3799--A3810},
+  year={2018},
+  publisher={The Electrochemical Society}
+}
+
+@article{schmalstieg2018ii,
+  title={Full cell parameterization of a high-power lithium-ion battery for a physico-chemical model: part ii. thermal parameters and validation},
+  author={Schmalstieg, Johannes and Rahe, Christiane and Ecker, Madeleine and Sauer, Dirk Uwe},
+  journal={Journal of the Electrochemical Society},
+  volume={165},
+  number={16},
+  pages={A3811--A3819},
+  year={2018},
+  publisher={The Electrochemical Society}
+}
+}

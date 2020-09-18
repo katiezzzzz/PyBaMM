@@ -1,0 +1,9 @@
+Name [units],Value,Reference,Notes
+# Empty rows and rows starting with ‘#’ will be ignored,,,
+,,,
+Separator porosity,0.3949,,
+Separator Bruggeman coefficient (electrolyte),1.62,,
+Separator Bruggeman coefficient (electrode),0,,
+Separator density [kg.m-3],397,default,
+Separator specific heat capacity [J.kg-1.K-1],2.00E5,660 / (397 * 1.87E-05 * 3.75 * 0.1185),coil heat capacity / (separator density * separator thickness * electrode height * electrode volume) 
+Separator thermal conductivity [W.m-1.K-1],1.18E5,2.20 / 1.87E-05,coil-housing conductivity / separator thickness

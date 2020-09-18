@@ -129,6 +129,18 @@ Ramadass2004 = {
     "citation": "marquis2019asymptotic",
 }
 
+Schmalstieg2018 = {
+    "chemistry": "lithium-ion",
+    "cell": "prismatic_Schmalstieg2018",
+    "anode": "graphite_Schmalstieg2018",
+    "separator": "separator_Schmalstieg2018",
+    "cathode": "nmc_Schmalstieg2018",
+    "electrolyte": "lipf6_Schmalstieg2018",
+    "experiment": "1C_discharge_from_full_Schmalstieg2018",
+    "sei": "example",
+    "citation": ["schmalstieg2018i", "schmalstieg2018ii"],
+}
+
 #
 # Lead-acid
 #
